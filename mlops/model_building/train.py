@@ -134,7 +134,7 @@ with mlflow.start_run():
     print(f"Model saved as artifact at: {model_path}")
 
     # Upload to Hugging Face
-    repo_id = "sumachakkingal/churn-model"
+    repo_id = "sumachakkingal/bank-customer-churn"
     repo_type = "model"
 
     # Step 1: Check if the space exists

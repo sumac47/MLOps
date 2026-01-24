@@ -4,7 +4,7 @@ from huggingface_hub import hf_hub_download
 import joblib
 
 # Download the model from the Model Hub
-model_path = hf_hub_download(repo_id="sumachakkingal/churn-model", filename="best_churn_model_v1.joblib")
+model_path = hf_hub_download(repo_id="sumachakkingal/bank-customer-churn", filename="best_churn_model_v1.joblib")
 
 # Load the model
 model = joblib.load(model_path)
@@ -26,8 +26,7 @@ IsActiveMember = st.selectbox("Is Active Member?", ["Yes", "No"])
 EstimatedSalary = st.number_input("Estimated Salary (customer’s estimated salary)", min_value=0.0, value=50000.0)
 
 # Convert categorical inputs to match model training
-input_data = pd.DataFrame([
-    {
+input_data = pd.DataFrame([{
     'CreditScore': CreditScore,
     'Geography': Geography,
     'Age': Age,
@@ -37,8 +36,7 @@ input_data = pd.DataFrame([
     'HasCrCard': 1 if HasCrCard == "Yes" else 0,
     'IsActiveMember': 1 if IsActiveMember == "Yes" else 0,
     'EstimatedSalary': EstimatedSalary
-}
-])
+}])
 
 # Set the classification threshold
 classification_threshold = 0.45
