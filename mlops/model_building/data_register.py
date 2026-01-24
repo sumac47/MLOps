@@ -6,8 +6,7 @@ import os
 repo_id = "sumachakkingal/bank-customer-churn"
 repo_type = "dataset"
 
-from google.colab import userdata
-userdata.get('HF_TOKEN')
+
 
 # Initialize API client
 api = HfApi(token=os.getenv("HF_TOKEN"))
